@@ -15,17 +15,12 @@ func main() {
 	e.Use(middleware.Recover())
 
 	// Routes
-	//e.GET("/", hello)
 	e.GET("/assets/:id", assetID)
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
-// Handler
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
-}
-
+// assetID mock of the real handler
 func assetID(c echo.Context) error {
-	return c.String(http.StatusOK, "assetID!")
+	return c.String(http.StatusOK, "assetID")
 }
